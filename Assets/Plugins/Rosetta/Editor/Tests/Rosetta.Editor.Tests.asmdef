@@ -1,6 +1,8 @@
 {
     "name": "Rosetta.Editor.Tests",
-    "references": [],
+    "references": [
+        "Rosetta.Editor"
+    ],
     "optionalUnityReferences": [
         "TestAssemblies"
     ],
