@@ -62,3 +62,8 @@ tools/
 
 # Docs
 Docs/
+
+# UPM
+Assets/Plugins/Rosetta/package.json
+Assets/Plugins/Rosetta/package.json.meta
+Assets/Plugins/Rosetta/.gitignore
