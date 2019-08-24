@@ -6,7 +6,6 @@ using Rosetta.Runtime;
 using Rosetta.Runtime.Loader;
 using Sirenix.Utilities;
 using UnityEngine;
-using TMPro;
 
 namespace Rosetta.Editor.Collector
 {
