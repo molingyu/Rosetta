@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -30,7 +30,7 @@ namespace Rosetta.Runtime
         /// <summary>
         ///     The dictionary of language names.
         /// </summary>
-        public static Dictionary<LangFlag, string> LangNames = new Dictionary<LangFlag, string>
+        public static readonly Dictionary<LangFlag, string> LangNames = new Dictionary<LangFlag, string>
         {
             {LangFlag.AA, "Afaraf"},
             {LangFlag.AB, "Аҧсуа"},
