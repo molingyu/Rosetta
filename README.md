@@ -17,19 +17,20 @@ You can reach the me right here by opening a [new issue](https://github.com/moli
 
 ## Installation and usage
 
-+ Download unitypackage from Releases and import it.
++ Download unitypackage from [Releases](https://github.com/molingyu/Rosetta/releases) and import it.
+* Use [UPM](https://github.com/molingyu/shitake.rosetta)
 
 ## Demo
 
-A simple game [demo]()(Dropbox).
+A simple game [demo](https://www.dropbox.com/s/npkllqne2l8xea0/RosettaExample.rar?dl=0) (Dropbox).
 
 ### Mirrors
-+ [China]()(BaiduYun) 
++ [China](https://pan.baidu.com/s/16dXxgmDyA4UU9Cd0a-CvdA) (BaiduYun 提取码: dwca ) 
 
 ## Roadmap
 + Mo file support.
 + Add TextMesh Pro font Loader.
-+ Get test from source code.
++ Get text from source code.
 
 ## License
 
