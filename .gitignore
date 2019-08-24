@@ -50,3 +50,8 @@ crashlytics-build.properties
 # Sirenix
 Assets/Plugins/Sirenix/
 Assets/Plugins/Sirenix.meta
+
+# IDE
+.idea/
+Assets/Plugins/Editor/JetBrains/
+Assets/Plugins/Editor/JetBrains.meta
