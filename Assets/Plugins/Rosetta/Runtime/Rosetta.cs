@@ -407,7 +407,7 @@ namespace Rosetta.Runtime
         /// <returns></returns>
         public static Font GetFont(string resName)
         {
-            if (!I18NSpriteCache.ContainsKey(resName))
+            if (!I18NFontCache.ContainsKey(resName))
             {
                 var loader = Loaders[I18NFileType.Font];
                 try
@@ -420,7 +420,6 @@ namespace Rosetta.Runtime
                     return null;
                 }
             }
-
             return I18NFontCache[resName];
         }
 
@@ -431,7 +430,7 @@ namespace Rosetta.Runtime
         /// <returns></returns>
         public static TMP_FontAsset GetTMPFont(string resName)
         {
-            if (!I18NSpriteCache.ContainsKey(resName))
+            if (!I18NTMPFontCache.ContainsKey(resName))
             {
                 var loader = Loaders[I18NFileType.TMPFont];
                 try
