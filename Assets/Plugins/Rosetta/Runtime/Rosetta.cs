@@ -434,7 +434,7 @@ namespace Rosetta.Runtime
         /// </summary>
         /// <param name="resName"></param>
         /// <returns></returns>
-        public static TMP_FontAsset GetTMPFont(string resName)
+        public static TMP_FontAsset GetTMP_Font(string resName)
         {
             if (!I18NTMPFontCache.ContainsKey(resName))
             {
