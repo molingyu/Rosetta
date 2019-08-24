@@ -368,7 +368,7 @@ namespace Rosetta.Runtime
                 if (!cache.ContainsKey(resName))
                 {
                     var loader = Loaders[I18NFileType.Png];
-                    cache.Add(resName, loader.Load<Sprite>(Path.Combine(resName)));
+                    cache.Add(resName, loader.Load<Sprite>(i18NSpace, Path.Combine(resName)));
                 }
 
                 return cache[resName];
@@ -394,7 +394,7 @@ namespace Rosetta.Runtime
                 if (!cache.ContainsKey(resName))
                 {
                     var loader = Loaders[I18NFileType.Wav];
-                    cache.Add(resName, loader.Load<AudioClip>(Path.Combine(resName)));
+                    cache.Add(resName, loader.Load<AudioClip>(i18NSpace,Path.Combine(resName)));
                 }
 
                 return cache[resName];
@@ -418,7 +418,7 @@ namespace Rosetta.Runtime
                 var loader = Loaders[I18NFileType.Font];
                 try
                 {
-                    I18NFontCache.Add(resName, loader.Load<Font>(Path.Combine(resName)));
+                    I18NFontCache.Add(resName, loader.Load<Font>("",Path.Combine(resName)));
                 }
                 catch (Exception e)
                 {
