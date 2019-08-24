@@ -438,10 +438,10 @@ namespace Rosetta.Runtime
         {
             if (!I18NTMPFontCache.ContainsKey(resName))
             {
-                var loader = Loaders[I18NFileType.TMPFont];
+                var loader = Loaders[I18NFileType.Font];
                 try
                 {
-                    I18NTMPFontCache.Add(resName, loader.Load<TMP_FontAsset>(Path.Combine(resName)));
+                    I18NTMPFontCache.Add(resName, loader.Load<TMP_FontAsset>("",Path.Combine(resName)));
                 }
                 catch (Exception e)
                 {
