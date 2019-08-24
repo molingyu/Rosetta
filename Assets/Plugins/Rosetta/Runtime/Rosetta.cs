@@ -350,7 +350,7 @@ namespace Rosetta.Runtime
         {
             if (DevLocale == Locale) return i18NString;
             var cache = I18NTextCache[i18NSpace];
-            if (cache != null && !cache.ContainsKey(i18NString))
+            if (cache.ContainsKey(i18NString))
                 return cache[i18NString];
             I18NStringMissing?.Invoke(Locale, i18NString, i18NSpace);
             return i18NString;
@@ -367,7 +367,7 @@ namespace Rosetta.Runtime
             try
             {
                 var cache = I18NSpriteCache[i18NSpace];
-                if (cache.ContainsKey(resName))
+                if (!cache.ContainsKey(resName))
                 {
                     var loader = Loaders[I18NFileType.Png];
                     cache.Add(resName, loader.Load<Sprite>(Path.Combine(resName)));
@@ -393,7 +393,7 @@ namespace Rosetta.Runtime
             try
             {
                 var cache = I18NAudioCache[i18NSpace];
-                if (cache.ContainsKey(resName))
+                if (!cache.ContainsKey(resName))
                 {
                     var loader = Loaders[I18NFileType.Wav];
                     cache.Add(resName, loader.Load<AudioClip>(Path.Combine(resName)));
