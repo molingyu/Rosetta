@@ -20,6 +20,8 @@ You can reach the me right here by opening a [new issue](https://github.com/moli
 + Download unitypackage from [Releases](https://github.com/molingyu/Rosetta/releases) and import it.
 * Use [UPM](https://github.com/molingyu/shitake.rosetta)
 
+[API Document & Guides](https://molingyu.github.io/RosettaDocs/)
+
 ## Demo
 
 A simple game [demo](https://www.dropbox.com/s/npkllqne2l8xea0/RosettaExample.rar?dl=0) (Dropbox).
