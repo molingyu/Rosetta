@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Rosetta.Runtime.Loader;
-using Sirenix.Utilities;
 using TMPro;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Rosetta.Runtime
 {
@@ -224,7 +223,7 @@ namespace Rosetta.Runtime
         };
 
         // I18N Resource Caches
-        private static List<string> _i18NTextSpaceCaches;
+        private static List<string> _i18NSpaceCaches;
 
         /// <summary>
         ///     The I18N String cache.Storage by space.
@@ -241,8 +240,7 @@ namespace Rosetta.Runtime
         /// <summary>
         ///     The I18N AudioClip cache.Storage by space.
         /// </summary>
-        public static Dictionary<string, Dictionary<string, AudioClip>> I18NAudioCache =
-            new Dictionary<string, Dictionary<string, AudioClip>>();
+        public static Dictionary<string, Dictionary<string, AudioClip>> I18NAudioCache = new Dictionary<string, Dictionary<string, AudioClip>>();
 
         /// <summary>
         ///     The I18N Font cache.
@@ -336,8 +334,8 @@ namespace Rosetta.Runtime
             DevLocale = devLocale;
             _locale = locale;
             I18NTextFileType = textFileType;
-            _i18NTextSpaceCaches = i18NSpaces;
-            if (DevLocale != Locale) _i18NTextSpaceCaches.ForEach(LoadI18NResSpace);
+            _i18NSpaceCaches = i18NSpaces;
+            if (DevLocale != Locale) _i18NSpaceCaches.ForEach(LoadI18NResSpace);
         }
 
         /// <summary>
@@ -488,11 +486,11 @@ namespace Rosetta.Runtime
         /// <param name="space">Space to be unloaded</param>
         public static void UnloadI18NResSpace(string space)
         {
-            _i18NTextSpaceCaches.Remove(space);
+            _i18NSpaceCaches.Remove(space);
             I18NTextCache.Remove(space);
-            I18NSpriteCache[space].Values.ForEach(sprite => Object.Destroy(sprite.texture));
+            I18NSpriteCache[space].Values.ToList().ForEach(sprite => UnityEngine.Object.Destroy(sprite.texture));
             I18NSpriteCache.Remove(space);
-            I18NAudioCache[space].Values.ForEach(audio => Object.Destroy(audio));
+            I18NAudioCache[space].Values.ToList().ForEach(UnityEngine.Object.Destroy);
             I18NAudioCache.Remove(space);
         }
 
@@ -501,8 +499,8 @@ namespace Rosetta.Runtime
         /// </summary>
         public static void ClearAllCache()
         {
-            _i18NTextSpaceCaches.ForEach(UnloadI18NResSpace);
-            _i18NTextSpaceCaches.Clear();
+            _i18NSpaceCaches.ForEach(UnloadI18NResSpace);
+            _i18NSpaceCaches.Clear();
             I18NTextCache.Clear();
             I18NSpriteCache.Clear();
             I18NAudioCache.Clear();
@@ -514,9 +512,9 @@ namespace Rosetta.Runtime
         {
             if (DevLocale != Locale)
             {
-                _i18NTextSpaceCaches.ForEach(LoadI18NResSpace);
-                LocaleChanged?.Invoke(Locale);
+                _i18NSpaceCaches.ForEach(LoadI18NResSpace);
             }
+            LocaleChanged?.Invoke(Locale);
         }
 
         private static RosettaRuntimeSetting LoadSetting()
