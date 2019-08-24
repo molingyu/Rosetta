@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -470,9 +470,9 @@ namespace Rosetta.Runtime
         {
             try
             {
-                I18NTextCache[space] = Loaders[I18NTextFileType].Load<Dictionary<string, string>>(space, Locale);
-                I18NSpriteCache[space] = Loaders[I18NFileType.Png].Load<Dictionary<string, Sprite>>(space, Locale);
-                I18NAudioCache[space] = Loaders[I18NFileType.Wav].Load<Dictionary<string, AudioClip>>(space, Locale);
+                I18NTextCache[space] = Loaders[I18NTextFileType]
+                    .Load<Dictionary<string, string>>("", space, Locale);
+                MultiMediaLoader.Load(space, Locale, ref I18NSpriteCache, ref I18NAudioCache);
             }
             catch (Exception e)
             {
