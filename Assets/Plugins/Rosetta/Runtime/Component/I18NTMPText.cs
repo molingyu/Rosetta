@@ -9,7 +9,7 @@ namespace Rosetta.Runtime.Component
     /// </summary>
     [AddComponentMenu("Rosetta/I18NTMPText")]
     [RequireComponent(typeof(TMP_Text))]
-    [HelpURL("https://molingyu.github.io/Rosetta/guides/makeI18NRes/component/I18NTMPText.html")]
+    [HelpURL("https://molingyu.github.io/RosettaDocs/guides/makeI18NRes/component/I18NTMPText.html")]
     public class I18NTMPText : I18NComponentBase
     {
         private TMP_FontAsset _devFont;

@@ -12,7 +12,7 @@ namespace Rosetta.Runtime.Component
     /// </summary>
     [AddComponentMenu("Rosetta/I18NImage")]
     [RequireComponent(typeof(Image))]
-    [HelpURL("https://molingyu.github.io/Rosetta/guides/makeI18NRes/component/I18NImage.html")]
+    [HelpURL("https://molingyu.github.io/RosettaDocs/guides/makeI18NRes/component/I18NImage.html")]
     public class I18NImage : I18NComponentBase
     {
         private Sprite _devSprite;

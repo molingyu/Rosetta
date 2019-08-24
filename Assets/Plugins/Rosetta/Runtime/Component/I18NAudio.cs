@@ -7,7 +7,7 @@ namespace Rosetta.Runtime.Component
     /// </summary>
     [AddComponentMenu("Rosetta/I18NAudio")]
     [RequireComponent(typeof(AudioSource))]
-    [HelpURL("https://molingyu.github.io/Rosetta/guides/makeI18NRes/component/I18NAudio.html")]
+    [HelpURL("https://molingyu.github.io/RosettaDocs/guides/makeI18NRes/component/I18NAudio.html")]
     public class I18NAudio : I18NComponentBase
     {
         private AudioClip _devAudio;

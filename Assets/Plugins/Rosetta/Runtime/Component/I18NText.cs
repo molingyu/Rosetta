@@ -9,7 +9,7 @@ namespace Rosetta.Runtime.Component
     /// </summary>
     [AddComponentMenu("Rosetta/I18NText")]
     [RequireComponent(typeof(Text))]
-    [HelpURL("https://molingyu.github.io/Rosetta/guides/makeI18NRes/component/I18NText.html")]
+    [HelpURL("https://molingyu.github.io/RosettaDocs/guides/makeI18NRes/component/I18NText.html")]
     public class I18NText : I18NComponentBase
     {
         private Font _devFont;

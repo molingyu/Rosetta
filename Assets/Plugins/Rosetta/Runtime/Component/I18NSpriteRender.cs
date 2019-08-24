@@ -7,7 +7,7 @@ namespace Rosetta.Runtime.Component
     /// </summary>
     [AddComponentMenu("Rosetta/I18NSpriteRenderer")]
     [RequireComponent(typeof(SpriteRenderer))]
-    [HelpURL("https://molingyu.github.io/Rosetta/guides/makeI18NRes/component/I18NSpriteRenderer.html")]
+    [HelpURL("https://molingyu.github.io/RosettaDocs/guides/makeI18NRes/component/I18NSpriteRenderer.html")]
     public class I18NSpriteRenderer : I18NComponentBase
     {
         private Sprite _devSprite;
