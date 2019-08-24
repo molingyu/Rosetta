@@ -1,0 +1,24 @@
+- name: 基础
+  items:
+  - name: 起步
+    href: gettingStarted.md
+  - name: 标记 I18N 资源
+    items:
+    - name: 使用 I18N Attribute
+      href: makeI18NRes/useI18NAttribute.md
+    - name: 使用 I18N Component
+      items:
+        - name: I18NAudio
+          href: makeI18NRes/component/I18NAudio.md
+  - name: 使用 Collector 和 Creator
+    href: useCollectorAndCretor.md
+  - name: 翻译文件模板
+    href: translationFileTemplate.md
+  - name: 运行时加载和使用
+    href: loadAndUseOnRuntime.md
+- name: 高级开发
+  items:
+    - name: 自定义 Loader
+      href: customLoader.md
+- name: 开发路线图
+  href: radmap.md
