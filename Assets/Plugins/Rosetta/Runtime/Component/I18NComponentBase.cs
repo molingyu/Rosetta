@@ -18,7 +18,7 @@ namespace Rosetta.Runtime.Component
 
         /// <summary>
         ///     I18N Component initialization method.Will add the current component's `RosettaOnLocaleChanged` method
-        ///     to <see cref="api/Rosetta.Runtime.Rosetta.html#Rosetta_Runtime_Rosetta_LocaleChanged">Rosetta.LocaleChanged</see> event.
+        ///     to <see cref="Rosetta.LocaleChanged">Rosetta.LocaleChanged</see> event.
         ///     This subscription is removed when the component is destroyed. 
         /// </summary>
         protected void Create()
