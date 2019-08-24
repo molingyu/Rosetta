@@ -1,5 +1,5 @@
 {
-    "name": "Rosetta.Tests",
+    "name": "Rosetta.Runtime.Tests",
     "references": [
         "Rosetta.Runtime"
     ],
