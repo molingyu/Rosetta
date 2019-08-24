@@ -257,7 +257,15 @@ namespace Rosetta.Runtime
         /// <summary>
         ///     All I18N File Loader.
         /// </summary>
-        public static Dictionary<I18NFileType, LoaderBase> Loaders = new Dictionary<I18NFileType, LoaderBase>();
+        public static Dictionary<I18NFileType, LoaderBase> Loaders = new Dictionary<I18NFileType, LoaderBase>
+        {
+            {I18NFileType.Po, new PoLoader()},
+            {I18NFileType.Png, new PngLoader()},
+            {I18NFileType.Wav, new WavLoader()},
+            {I18NFileType.Font, new FontLoader()}
+        };
+        
+        public static MultiMediaLoader MultiMediaLoader = new MultiMediaLoader();
 
         /// <summary>
         ///     ToDo: error
