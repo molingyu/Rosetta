@@ -55,3 +55,7 @@ Assets/Plugins/Sirenix.meta
 .idea/
 Assets/Plugins/Editor/JetBrains/
 Assets/Plugins/Editor/JetBrains.meta
+Assets/Plugins/Editor.meta
+
+# CI
+tools/
