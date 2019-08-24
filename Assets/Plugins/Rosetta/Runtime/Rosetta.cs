@@ -271,7 +271,7 @@ namespace Rosetta.Runtime
         ///     ToDo: error
         ///     I18N files load path.
         /// </summary>
-        public static List<string> LoadPath = new List<string>
+        public static readonly List<string> LoadPath = new List<string>
         {
             $"{new Regex("/[^/]*$").Replace(Application.dataPath, "")}/I18N/"
         };
