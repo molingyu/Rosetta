@@ -1,7 +1,8 @@
 {
     "name": "Rosetta.Editor",
     "references": [
-        "Rosetta.Runtime"
+        "Rosetta.Runtime",
+        "Unity.TextMeshPro"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [
