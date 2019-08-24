@@ -166,6 +166,7 @@ namespace Rosetta.Runtime
             {LangFlag.PL, "polski"},
             {LangFlag.PS, "پښتو"},
             {LangFlag.PT, "Português"},
+            {LangFlag.PT_BR, "Português(Brasil)"},
             {LangFlag.QU, "Runa Simi"},
             {LangFlag.RM, "rumantsch grischun"},
             {LangFlag.RN, "kiRundi"},
