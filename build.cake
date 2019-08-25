@@ -7,6 +7,10 @@ Task("Docs").Does(() => {
     DocFxBuild("./DocfxConf/docfx.json");
 });
 
+Task("DocsServer").Does(() => {
+    DocFxServe("./Docs");
+});
+
 Task("Default").Does(() =>
 {
     Information("Hello World!");
