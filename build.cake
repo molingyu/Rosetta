@@ -1,7 +1,8 @@
+#addin nuget:?package=Cake.DocFx&version=0.13.0
+#tool nuget:?package=docfx.console&version=2.45.0
+
 var target = Argument("target", "Default");
 
-#addin "Cake.DocFx"
-#tool "docfx.console"
 Task("Docs").Does(() => {
     DocFxBuild("./DocfxConf/docfx.json");
 });
