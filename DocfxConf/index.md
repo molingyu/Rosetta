@@ -7,7 +7,8 @@ footer{
   position: relative;
 }
 .version-link,.github-link {
-    text-shadow: black 0.1em 0.1em 0.1em}
+    text-shadow: black 0.1em 0.1em 0.1em;
+}
 </style>
 
 <div class="hero">
@@ -16,7 +17,7 @@ footer{
       <strong>Rosetta</strong>
     </div>
     <div class="buttons-unit-small">
-      <a class="version-link" href="">Version Notes</a><span>|</span><a class="github-link" href="https://github.com/molingyu/Rosetta">View in Github</a>
+      <a class="version-link" href="https://molingyu.github.io/RosettaDocs/changelog.html">Version Notes</a><span> | </span><a class="github-link" href="https://github.com/molingyu/Rosetta">View in Github</a>
     </div>
     <div class="minitext">
       I18N in Unity3D made easy and automation. Full support for GNU GetText i18n workflow.
@@ -46,7 +47,7 @@ footer{
       <div class="col-md-8 col-md-offset-2 text-center">
         <section>
           <h2>Unity media file support</h2>
-          <p class="lead">DocFX runs on Linux, macOS, and Windows. The generated website can be deployed to any web host with no additional configurations, e.g. Github Pages, Azure Websites...</p>
+          <p class="lead">Support Unity media file，e.g. <code>Sprite</code>/<code>Font</code>/<code>AudioClip</code>/<code>TMP_Font</code></p>
         </section>
       </div>
     </div>
@@ -58,7 +59,8 @@ footer{
       <div class="col-md-8 col-md-offset-2 text-center">
         <section>
           <h2>Load new language at runtime</h2>
-          <p class="lead">DocFX provides a flexible way to customize templates and themes easily.</p>
+          <p class="lead">Use different loaders to support loading of different types of i
+          18n files at runtime</p>
         </section>
       </div>
     </div>
