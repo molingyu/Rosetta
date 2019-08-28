@@ -1,13 +1,14 @@
 # 起步
 
 ## 1. 什么是 Rosetta
-
 ![Rosetta](../../Res/Rosetta.png)
 
-## 2. 获取
-你可以从 [GitHub Release]() 页面获取打包好的 *unitypackage* 文件。
 
-另外，你也可以 通过 git repo 以 [UPM](https://forum.unity.com/threads/git-support-on-package-manager.573673/) 的方式将 Rosetta 引入你的项目。
+## 2. 获取
+你可以从 [GitHub Release](https://github.com/molingyu/Rosetta/releases) 页面获取打包好的 *unitypackage* 文件。
+
+另外，你也可以通过 git repo 以 [UPM](https://forum.unity.com/threads/git-support-on-package-manager.573673/) 的方式将 [Rosetta](https://github.com/molingyu/shitake.rosetta) 
+引入你的项目。
 
 ## 3. 在 Unity 中使用 Rosetta
 
@@ -23,12 +24,10 @@ I18N 资源可能会以各种方式存在于工程中。在 Unity 下大体存�
 2. 情况同第一条，不同的是这些 GameObject 存在于 Prefab 而不是 Scene。
 3. 在一些自定义的数据结构的相关字段上。这些数据可能来自一个具体 ScriptableObject 对象，或者对应的 xml、json 或 csv 的配置文件上。
 
-以上三种情况对应着三种游戏内数据来源：UI、关卡/地图数据、丢到。在 Rosetta 中，针对每种情况都有预先定义好的标记来标记这些需要收集的 I18N 数据。
-
-对于情况 1 ，
+以上三种情况对应着三种游戏内数据来源：UI、关卡/地图数据、数据库数据。在 Rosetta 中，针对每种情况都有预先定义好的标记来标记这些需要收集的 I18N 数据。
 
 ### 3.2 创建 I18NCreator 并生成翻译文件模板
-对于 Rosetta 来说，I18N资源通过对应的方式标记后，就可以通过 I18N Collector 来收集，并通过 I18N Creator 来生成对应的 I18N 
+对于 Rosetta 来说，I18N资源通过对应的方式标记后，就可以通过 I18N Collector 来收集，并通过 I18N Creator 生成对应的 I18N 
 模板文件。这些模板文件会提交给翻译工作人员完成翻译。最后在运行时，通过对应的加载器完成加载。
 
 ![Pot Creator](./res/creator.png)
