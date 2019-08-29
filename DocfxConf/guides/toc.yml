@@ -10,6 +10,8 @@
       items:
         - name: I18NAudio
           href: makeI18NRes/component/I18NAudio.md
+        - name: I18NImage
+          href: makeI18NRes/component/I18NImage.md
   - name: 使用 Collector 和 Creator
     href: useCollectorAndCretor.md
   - name: 翻译文件模板
