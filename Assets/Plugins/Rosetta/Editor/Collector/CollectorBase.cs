@@ -4,12 +4,13 @@ using System.Linq;
 using Rosetta.Editor.Creator;
 using Rosetta.Runtime;
 using Rosetta.Runtime.Loader;
+using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
 
 namespace Rosetta.Editor.Collector
 {
-    [Serializable, HideInInspector]
+    [Serializable, HideInEditorMode]
     public abstract class CollectorBase
     {
         private static List<Type> _i18NClass;
