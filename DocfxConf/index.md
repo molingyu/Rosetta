@@ -59,8 +59,8 @@ footer{
       <div class="col-md-8 col-md-offset-2 text-center">
         <section>
           <h2>Load new language at runtime</h2>
-          <p class="lead">Use different loaders to support loading of different types of i
-          18n files at runtime</p>
+          <p class="lead">Use different loaders to support loading of different types of i18n files at runtime
+          (default support <code>png/font/wav/po</code> files)</p>
         </section>
       </div>
     </div>
