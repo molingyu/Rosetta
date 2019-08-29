@@ -12,8 +12,14 @@
           href: makeI18NRes/component/I18NAudio.md
         - name: I18NImage
           href: makeI18NRes/component/I18NImage.md
+        - name: I18NSpriteRenderer
+          href: makeI18NRes/component/I18NSpriteRenderer.md
+        - name: I18NText
+          href: makeI18NRes/component/I18NText.md
+        - name: I18NTMPText
+          href: makeI18NRes/component/I18NTMPText.md         
   - name: 使用 Collector 和 Creator
-    href: useCollectorAndCretor.md
+    href: useCollectorAndCreator.md
   - name: 翻译文件模板
     href: translationFileTemplate.md
   - name: 运行时加载和使用
