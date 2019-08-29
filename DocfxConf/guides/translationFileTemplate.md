@@ -9,6 +9,8 @@ Rosetta 的翻译模板文件是以 Creator 为单位进行生成的。不同的
 
 ![pot](./res/pot.png)
 
+需要注意的是，在 gettext 里 pot/po 文件的文件名用来区分对应的是哪一个语言。而在 Rosetta 中则完全不同。因为 Rosetta 需要分段加载的缘故。不同语言使用不同的文件夹来区分。而 pot/po 
+文件的文件名则用来区分他是哪一个**域**（space）。
 
 # MediaCreator
 `MediaCreator` 负责生成音频/图片/字体的 I18N 翻译模板文件。
