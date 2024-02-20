@@ -67,3 +67,6 @@ Docs/
 Assets/Plugins/Rosetta/package.json
 Assets/Plugins/Rosetta/package.json.meta
 Assets/Plugins/Rosetta/.gitignore
+
+# VSC
+.vscode/
