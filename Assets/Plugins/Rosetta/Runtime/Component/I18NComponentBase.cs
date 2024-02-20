@@ -1,4 +1,4 @@
-using Sirenix.OdinInspector;
+// using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Rosetta.Runtime.Component
@@ -8,7 +8,7 @@ namespace Rosetta.Runtime.Component
         /// <summary>
         ///     Comments to the translator will be used for the pot file "#." comment.
         /// </summary>
-        [MultiLineProperty] 
+        [Multiline(3)] 
         public string I18NComment = "";
 
         /// <summary>
