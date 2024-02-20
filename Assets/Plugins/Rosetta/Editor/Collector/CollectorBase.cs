@@ -4,27 +4,24 @@ using System.Linq;
 using Rosetta.Editor.Creator;
 using Rosetta.Runtime;
 using Rosetta.Runtime.Loader;
-using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 using UnityEngine;
 
 namespace Rosetta.Editor.Collector
 {
-    [Serializable, HideInEditorMode]
-    public abstract class CollectorBase
+    public abstract class CollectorBase : ScriptableObject
     {
         private static List<Type> _i18NClass;
-        
-        [HideInInspector] 
+
+        [HideInInspector]
         public Dictionary<string, I18NMedia<AudioClip>> I18NAudios;
 
-        [HideInInspector] 
+        [HideInInspector]
         public Dictionary<string, I18NMedia<Sprite>> I18NImages;
 
-        [HideInInspector] 
+        [HideInInspector]
         public Dictionary<string, I18NMedia<FontInfo>> I18NFonts;
 
-        [HideInInspector] 
+        [HideInInspector]
         public Dictionary<string, I18NMedia<string>> I18NStrings;
 
         public static List<Type> I18NClass => _i18NClass ?? (_i18NClass = GetI18NClass());
@@ -33,13 +30,18 @@ namespace Rosetta.Editor.Collector
 
         private static List<Type> GetI18NClass()
         {
-            var subclasses =
-                from assembly in AppDomain.CurrentDomain.GetAssemblies()
-                from type in assembly.GetTypes()
-                from attr in type.GetAttributes()
-                where attr.GetType() == typeof(I18NClassAttribute)
-                select type;
-            return subclasses.ToList();
+            // var subclasses =
+            //     from assembly in AppDomain.CurrentDomain.GetAssemblies()
+            //     from type in assembly.GetTypes()
+            //     from attr in type.Attributes
+            //     where attr.GetType() == typeof(I18NClassAttribute)
+            //     select type;
+            // return subclasses.ToList();
+            return AppDomain.CurrentDomain.GetAssemblies().SelectMany(assem =>
+                assem.GetTypes().Where(type =>
+                    type.CustomAttributes.Any(attr =>
+                        attr.AttributeType == typeof(I18NClassAttribute)))
+            ).ToList();
         }
     }
 }

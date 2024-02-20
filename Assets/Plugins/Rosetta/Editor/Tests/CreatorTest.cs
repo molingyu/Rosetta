@@ -1,10 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
-using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace Rosetta.Editor.Tests
+namespace Rosetta.Runtime.Tests
 {
     public class CreatorTest
     {

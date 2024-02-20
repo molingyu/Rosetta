@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Rosetta.Editor.Collector;
-using Sirenix.OdinInspector;
+using Rosetta.Runtime;
+using UnityEngine;
 
 namespace Rosetta.Editor.Creator
 {
@@ -21,15 +22,15 @@ namespace Rosetta.Editor.Creator
     }
         
     
-    public abstract class CreatorBase : SerializedScriptableObject
+    public abstract class CreatorBase : ScriptableObject
     {
+        [HideInInspector]
         public List<CollectorBase> Collectors = new List<CollectorBase>();
         public string Name;
         [FolderPath] public string OutputPath;
 
         protected abstract void _create();
 
-        [Button(ButtonSizes.Medium, Name = "Create I18N file")]
         public void Create()
         {
             _create();

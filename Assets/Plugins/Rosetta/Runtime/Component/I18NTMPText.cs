@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 
@@ -17,11 +16,11 @@ namespace Rosetta.Runtime.Component
         /// <summary>
         ///      If true, the corresponding i18n font is loaded via the `VirtualFontName` instead of the currently set font.
         /// </summary>
-        public bool IsVirtualFont;
+        [HideInInspector] public bool IsVirtualFont;
         /// <summary>
         ///     I18n font name.
         /// </summary>
-        [ShowIf("IsVirtualFont")] public string VirtualFontName = "";
+        [HideInInspector] public string VirtualFontName = "";
 
         private void Start()
         {

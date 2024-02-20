@@ -1,4 +1,4 @@
-using Sirenix.OdinInspector;
+// using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 #if UNITY_EDITOR
@@ -33,20 +33,5 @@ namespace Rosetta.Runtime.Component
             var image = gameObject.GetComponent<Image>();
             image.sprite = Rosetta.IsDefault() ? _devSprite : Rosetta.GetSprite(ResName, I18NSpace);
         }
-        
-#if UNITY_EDITOR
-
-        [OnInspectorGUI]
-        private void OnInspectorGUI()
-        {
-            if (EditorApplication.isPlaying) return;
-            TextureImporter textureImporter = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(gameObject.GetComponent<Image>().sprite.texture)) as TextureImporter;
-            if (!textureImporter.isReadable)
-                UnityEditor.EditorGUILayout.HelpBox("The Image source sprite is not readable.", UnityEditor.MessageType.Error);
-        }
-
-#endif
-
-
     }
 }

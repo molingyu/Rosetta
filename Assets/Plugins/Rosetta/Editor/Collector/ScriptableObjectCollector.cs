@@ -1,24 +1,23 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Rosetta.Editor.Creator;
 using Rosetta.Runtime;
-using Sirenix.OdinInspector;
-using Sirenix.Utilities;
+using Rosetta.Utils;
 using UnityEditor;
 using UnityEngine;
 
 namespace Rosetta.Editor.Collector
 {
-    [Serializable]
     public class ScriptableObjectCollector : CollectorBase
     {
         [FolderPath]
         public string DataFolderPath = "Data/Resources";
-        [InlineButton("Refresh")]
+        // [InlineButton("Refresh")]
         public List<ScriptableObject> DataList = new List<ScriptableObject>();
 
-        private void Refresh()
+        public void Refresh()
         {
             DataList.Clear();
             var guids = AssetDatabase.FindAssets("t:" + typeof(ScriptableObject).Name, new[] {DataFolderPath});
@@ -59,13 +58,13 @@ namespace Rosetta.Editor.Collector
         {
             var fields =
                 from field in classType.GetFields()
-                from attr in field.GetAttributes()
+                from attr in field.GetCustomAttributes(true)
                 where attr is I18NStringAttribute
                 select field;
             fields.ForEach(field =>
             {
                 var path =
-                    $"Database[{type.ToString()}]:/InstanceID:{obj.GetInstanceID()}/FieldName:{field.Name}";
+                    $"Database[{type}]:/InstanceID:{obj.GetInstanceID()}/FieldName:{field.Name}";
                 var text = field.GetValue(obj) as string;
 
                 if (I18NStrings.ContainsKey(text ?? throw new InvalidOperationException()))
@@ -76,7 +75,7 @@ namespace Rosetta.Editor.Collector
                 {
                     var i18NString = new I18NMedia<string>
                     {
-                        Comment = field.GetAttribute<I18NStringAttribute>().Comment,
+                        Comment = field.GetCustomAttribute<I18NStringAttribute>().Comment,
                         PathList = new List<string> {path},
                         Value = text
                     };
@@ -88,7 +87,7 @@ namespace Rosetta.Editor.Collector
         private void I18NStringListPass(Type classType, Type type, ScriptableObject obj)
         {
             var fields = from field in classType.GetFields()
-                from attr in field.GetAttributes()
+                from attr in field.GetCustomAttributes()
                 where attr is I18NStringListAttribute
                 select field;
             fields.ForEach(field =>
@@ -106,7 +105,7 @@ namespace Rosetta.Editor.Collector
                         {
                             var i18NString = new I18NMedia<string>
                             {
-                                Comment = field.GetAttribute<I18NStringListAttribute>().Comment,
+                                Comment = field.GetCustomAttribute<I18NStringListAttribute>().Comment,
                                 PathList = new List<string> {path},
                                 Value = text
                             };
@@ -119,7 +118,7 @@ namespace Rosetta.Editor.Collector
         private void I18NAudioPass(Type classType, Type type, ScriptableObject obj)
         {
             var fields = from field in classType.GetFields()
-                from attr in field.GetAttributes()
+                from attr in field.GetCustomAttributes()
                 where attr is I18NAudioAttribute
                 select field;
             fields.ForEach(field =>
@@ -137,7 +136,7 @@ namespace Rosetta.Editor.Collector
                 {
                     var i18NAudio = new I18NMedia<AudioClip>
                     {
-                        Comment = field.GetAttribute<I18NAudioAttribute>().Comment,
+                        Comment = field.GetCustomAttribute<I18NAudioAttribute>().Comment,
                         PathList = new List<string> {path},
                         Value = value
                     };
@@ -149,7 +148,7 @@ namespace Rosetta.Editor.Collector
         private void I18NAudioListPass(Type classType, Type type, ScriptableObject obj)
         {
             var fields = from field in classType.GetFields()
-                from attr in field.GetAttributes()
+                from attr in field.GetCustomAttributes()
                 where attr is I18NAudioListAttribute
                 select field;
             fields.ForEach(field =>
@@ -168,7 +167,7 @@ namespace Rosetta.Editor.Collector
                     {
                         var i18NAudio = new I18NMedia<AudioClip>
                         {
-                            Comment = field.GetAttribute<I18NAudioListAttribute>().Comment,
+                            Comment = field.GetCustomAttribute<I18NAudioListAttribute>().Comment,
                             PathList = new List<string> {path},
                             Value = audio
                         };
@@ -181,7 +180,7 @@ namespace Rosetta.Editor.Collector
         private void I18NImagePass(Type classType, Type type, ScriptableObject obj)
         {
             var fields = from field in classType.GetFields()
-                from attr in field.GetAttributes()
+                from attr in field.GetCustomAttributes()
                 where attr is I18NImageAttribute
                 select field;
             fields.ForEach(field =>
@@ -199,7 +198,7 @@ namespace Rosetta.Editor.Collector
                 {
                     var i18NImage = new I18NMedia<Sprite>
                     {
-                        Comment = field.GetAttribute<I18NImageAttribute>().Comment,
+                        Comment = field.GetCustomAttribute<I18NImageAttribute>().Comment,
                         PathList = new List<string> {path},
                         Value = value
                     };
@@ -211,7 +210,7 @@ namespace Rosetta.Editor.Collector
         private void I18NImageListPass(Type classType, Type type, ScriptableObject obj)
         {
             var fields = from field in classType.GetFields()
-                from attr in field.GetAttributes()
+                from attr in field.GetCustomAttributes()
                 where attr is I18NImageListAttribute
                 select field;
             fields.ForEach(field =>
@@ -230,7 +229,7 @@ namespace Rosetta.Editor.Collector
                     {
                         var i18NImage = new I18NMedia<Sprite>
                         {
-                            Comment = field.GetAttribute<I18NImageListAttribute>().Comment,
+                            Comment = field.GetCustomAttribute<I18NImageListAttribute>().Comment,
                             PathList = new List<string> {path},
                             Value = image
                         };
