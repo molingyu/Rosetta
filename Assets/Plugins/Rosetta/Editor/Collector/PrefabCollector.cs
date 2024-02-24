@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +5,6 @@ namespace Rosetta.Editor.Collector
 {
     public class PrefabCollector : PrefabCollectorBase
     {
-        // [AssetsOnly]
         public List<GameObject> PrefabList = new List<GameObject>();
 
         public override void Collect(string space)

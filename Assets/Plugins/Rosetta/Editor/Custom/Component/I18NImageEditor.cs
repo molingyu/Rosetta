@@ -12,8 +12,9 @@ namespace Rosetta.Editor.Component.Custom
         {
             base.OnInspectorGUI();
             if (EditorApplication.isPlaying) return;
-            TextureImporter textureImporter = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath((target as GameObject).GetComponent<Image>().sprite.texture)) as TextureImporter;
-            if (!textureImporter.isReadable)
+            TextureImporter textureImporter = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(
+                (target as GameObject)?.GetComponent<Image>().sprite.texture)) as TextureImporter;
+            if (textureImporter != null && !textureImporter.isReadable)
                 EditorGUILayout.HelpBox("The Image source sprite is not readable.", UnityEditor.MessageType.Error);
             serializedObject.ApplyModifiedProperties();
         }

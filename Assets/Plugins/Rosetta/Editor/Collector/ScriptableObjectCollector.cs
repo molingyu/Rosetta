@@ -14,16 +14,15 @@ namespace Rosetta.Editor.Collector
     {
         [FolderPath]
         public string DataFolderPath = "Data/Resources";
-        // [InlineButton("Refresh")]
         public List<ScriptableObject> DataList = new List<ScriptableObject>();
 
         public void Refresh()
         {
             DataList.Clear();
-            var guids = AssetDatabase.FindAssets("t:" + typeof(ScriptableObject).Name, new[] {DataFolderPath});
-            for (var i = 0; i < guids.Length; i++)
+            var guids = AssetDatabase.FindAssets("t:" + nameof(ScriptableObject), new[] {DataFolderPath});
+            foreach (var t in guids)    
             {
-                var path = AssetDatabase.GUIDToAssetPath(guids[i]);
+                var path = AssetDatabase.GUIDToAssetPath(t);
                 var data = AssetDatabase.LoadAssetAtPath(path, typeof(ScriptableObject)) as ScriptableObject;
                 if (!DataList.Contains(data)) DataList.Add(data);
             }
@@ -35,22 +34,21 @@ namespace Rosetta.Editor.Collector
             foreach (var obj in DataList)
             {
                 var type = obj.GetType();
-                foreach (var classType in i18NClass)
-                    if (type == classType)
-                    {
-                        // I18NString
-                        I18NStringPass(classType, type, obj);
-                        // I18NStringList
-                        I18NStringListPass(classType, type, obj);
-                        // I18NAudio
-                        I18NAudioPass(classType, type, obj);
-                        // I18NAudioList
-                        I18NAudioListPass(classType, type, obj);
-                        // I18NImage
-                        I18NImagePass(classType, type, obj);
-                        // I18NImageList
-                        I18NImageListPass(classType, type, obj);
-                    }
+                foreach (var classType in i18NClass.Where(classType => type == classType))
+                {
+                    // I18NString
+                    I18NStringPass(classType, type, obj);
+                    // I18NStringList
+                    I18NStringListPass(classType, type, obj);
+                    // I18NAudio
+                    I18NAudioPass(classType, type, obj);
+                    // I18NAudioList
+                    I18NAudioListPass(classType, type, obj);
+                    // I18NImage
+                    I18NImagePass(classType, type, obj);
+                    // I18NImageList
+                    I18NImageListPass(classType, type, obj);
+                }
             }
         }
         
@@ -124,9 +122,9 @@ namespace Rosetta.Editor.Collector
             fields.ForEach(field =>
             {
                 var path =
-                    $"Database[{type.ToString()}]:/InstanceID:{obj.GetInstanceID()}/FieldName:{field.Name}";
+                    $"Database[{type}]:/InstanceID:{obj.GetInstanceID()}/FieldName:{field.Name}";
                 var value = field.GetValue(obj) as AudioClip;
-                var audioName = (value ? value : throw new InvalidOperationException()).name;
+                var audioName = (value ? value : throw new InvalidOperationException())!.name;
 
                 if (I18NAudios.ContainsKey(audioName))
                 {
@@ -154,7 +152,7 @@ namespace Rosetta.Editor.Collector
             fields.ForEach(field =>
             {
                 var path =
-                    $"Database[{type.ToString()}]:/InstanceID:{obj.GetInstanceID()}/FieldName:{field.Name}";
+                    $"Database[{type}]:/InstanceID:{obj.GetInstanceID()}/FieldName:{field.Name}";
                 var audios = field.GetValue(obj) as List<AudioClip>;
                 (audios ?? throw new InvalidOperationException()).ForEach(audio =>
                 {
@@ -186,9 +184,9 @@ namespace Rosetta.Editor.Collector
             fields.ForEach(field =>
             {
                 var path =
-                    $"Database[{type.ToString()}]:/InstanceID:{obj.GetInstanceID()}/FieldName:{field.Name}";
+                    $"Database[{type}]:/InstanceID:{obj.GetInstanceID()}/FieldName:{field.Name}";
                 var value = field.GetValue(obj) as Sprite;
-                var imageName = (value ? value : throw new InvalidOperationException()).name;
+                var imageName = (value ? value : throw new InvalidOperationException())!.name;
 
                 if (I18NImages.ContainsKey(imageName))
                 {
@@ -216,7 +214,7 @@ namespace Rosetta.Editor.Collector
             fields.ForEach(field =>
             {
                 var path =
-                    $"Database[{type.ToString()}]:/InstanceID:{obj.GetInstanceID()}/FieldName:{field.Name}";
+                    $"Database[{type}]:/InstanceID:{obj.GetInstanceID()}/FieldName:{field.Name}";
                 var images = field.GetValue(obj) as List<Sprite>;
                 (images ?? throw new InvalidOperationException()).ForEach(image =>
                 {

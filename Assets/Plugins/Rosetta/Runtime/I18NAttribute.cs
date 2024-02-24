@@ -3,7 +3,7 @@ using System;
 namespace Rosetta.Runtime
 {
     [AttributeUsage(AttributeTargets.Field)]
-    public class I18NStringAttribute : System.Attribute
+    public class I18NStringAttribute : Attribute
     {
         public string Comment;
 
@@ -18,7 +18,7 @@ namespace Rosetta.Runtime
     }
     
     [AttributeUsage(AttributeTargets.Field)]
-    public class I18NStringListAttribute : System.Attribute
+    public class I18NStringListAttribute : Attribute
     {
         public string Comment;
 
@@ -33,7 +33,7 @@ namespace Rosetta.Runtime
     }
 
     [AttributeUsage(AttributeTargets.Field)]
-    public class I18NImageAttribute : System.Attribute
+    public class I18NImageAttribute : Attribute
     {
 
         public string Comment;
@@ -49,7 +49,7 @@ namespace Rosetta.Runtime
     }
     
     [AttributeUsage(AttributeTargets.Field)]
-    public class I18NImageListAttribute : System.Attribute
+    public class I18NImageListAttribute : Attribute
     {
 
         public string Comment;
@@ -65,7 +65,7 @@ namespace Rosetta.Runtime
     }
 
     [AttributeUsage(AttributeTargets.Field)]
-    public class I18NAudioAttribute : System.Attribute
+    public class I18NAudioAttribute : Attribute
     {
 
         public string Comment;
@@ -81,7 +81,7 @@ namespace Rosetta.Runtime
     }
 
     [AttributeUsage(AttributeTargets.Field)]
-    public class I18NAudioListAttribute : System.Attribute
+    public class I18NAudioListAttribute : Attribute
     {
 
         public string Comment;
@@ -97,7 +97,7 @@ namespace Rosetta.Runtime
     }
 
     [AttributeUsage(AttributeTargets.Class)]
-    public class I18NClassAttribute : System.Attribute
+    public class I18NClassAttribute : Attribute
     {
     }
 }

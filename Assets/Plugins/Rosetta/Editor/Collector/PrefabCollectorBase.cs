@@ -40,9 +40,9 @@ namespace Rosetta.Editor.Collector
                             if (component.IsVirtualFont) AddI18NFont(PrefixName, component);
                             AddI18NString(PrefixName, component);
                         }
-                    foreach (var component in gameObject.GetComponentsInChildren<I18NTMPText>())
+                    foreach (var component in gameObject.GetComponentsInChildren<I18NtmpText>())
                         if (component.I18NSpace == space){
-                            if (component.IsVirtualFont) AddI18NTMPFont(PrefixName, component);
+                            if (component.IsVirtualFont) AddI18NtmpFont(PrefixName, component);
                             AddI18NString(PrefixName, component);
                         }
                     
@@ -76,7 +76,7 @@ namespace Rosetta.Editor.Collector
             } 
         }
 
-        public void AddI18NTMPFont(string prefixName, I18NTMPText component)
+        public void AddI18NtmpFont(string prefixName, I18NtmpText component)
         {
             GameObject gameObject = component.gameObject;
             var font = gameObject.GetComponent<TextMeshProUGUI>().font;
@@ -87,7 +87,7 @@ namespace Rosetta.Editor.Collector
             }
             else
             {
-                var i18NTMPFont = new I18NMedia<FontInfo>
+                var i18NtmpFont = new I18NMedia<FontInfo>
                 {
                     Comment = component.I18NComment,
                     PathList = new List<string> {path},
@@ -98,7 +98,7 @@ namespace Rosetta.Editor.Collector
                         IsDefaultInclude = true
                     }
                 };
-                I18NFonts.Add(component.VirtualFontName, i18NTMPFont);
+                I18NFonts.Add(component.VirtualFontName, i18NtmpFont);
             }
         }
 

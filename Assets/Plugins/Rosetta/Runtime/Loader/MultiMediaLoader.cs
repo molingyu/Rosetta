@@ -18,7 +18,6 @@ namespace Rosetta.Runtime.Loader
     /// </summary>
     public  class MultiMediaLoader : LoaderBase
     {
-        
         public override T Load<T>(string space, string filename, LangFlag? flag = null)
         {
             throw new Exception("MultiMediaLoader this method is invalid.");

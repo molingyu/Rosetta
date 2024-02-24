@@ -11,7 +11,7 @@ namespace Rosetta.Editor.Custom.Collector
         {
             base.OnInspectorGUI();
             if (GUILayout.Button("Refresh"))
-                (target as ScriptableObjectCollector).Refresh();
+                (target as ScriptableObjectCollector)?.Refresh();
             serializedObject.ApplyModifiedProperties();
         }
     }

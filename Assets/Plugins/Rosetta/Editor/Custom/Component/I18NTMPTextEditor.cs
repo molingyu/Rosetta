@@ -3,7 +3,7 @@ using Rosetta.Runtime.Component;
 
 namespace Rosetta.Editor.Component.Custom
 {
-    [CustomEditor(typeof(I18NTMPText))]
+    [CustomEditor(typeof(I18NtmpText))]
     public class I18NTMPTextEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()

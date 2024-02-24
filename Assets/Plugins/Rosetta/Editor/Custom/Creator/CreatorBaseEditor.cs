@@ -11,11 +11,11 @@ namespace Rosetta.Editor.Custom.Creator
     [CustomEditor(typeof(CreatorBase), true)]
     public class CreatorBaseEditor : UnityEditor.Editor
     {
-        private static Type[] collectorTypes;
+        private static Type[] _collectorTypes;
 
         private void OnEnable()
         {
-            collectorTypes = AppDomain.CurrentDomain.GetAssemblies().SelectMany(assem =>
+            _collectorTypes = AppDomain.CurrentDomain.GetAssemblies().SelectMany(assem =>
                 assem.GetTypes().Where(type => type.IsSubclassOf(typeof(CollectorBase)) && !type.IsAbstract && !type.GetCustomAttributes(false).Any(attr => attr is HideInInspector))
             ).ToArray();
         }
@@ -31,7 +31,7 @@ namespace Rosetta.Editor.Custom.Creator
             if (GUILayout.Button("Add Collector", GUILayout.Height(20)))
             {
                 var menu = new GenericMenu();
-                foreach (var type in collectorTypes)
+                foreach (var type in _collectorTypes)
                 {
                     menu.AddItem(new GUIContent(type.Name), false,
                     () =>
@@ -57,7 +57,8 @@ namespace Rosetta.Editor.Custom.Creator
                 BeginHorizontal();
                 var itemName = item.GetType().Name;
                 LabelField(itemName, EditorStyles.boldLabel);
-                if (GUILayout.Button("Remove") && EditorUtility.DisplayDialog("Remove Collector", $"Are you sure you'd like to remove {itemName}?", "Yes", "No"))
+                if (GUILayout.Button("Remove") && EditorUtility.DisplayDialog("Remove Collector", 
+                        $"Are you sure you'd like to remove {itemName}?", "Yes", "No"))
                 {
                     AssetDatabase.RemoveObjectFromAsset(item);
                     AssetDatabase.SaveAssets();
@@ -76,7 +77,7 @@ namespace Rosetta.Editor.Custom.Creator
             base.OnInspectorGUI();
 
             if (GUILayout.Button("Create I18N file", GUILayout.Height(30)))
-                (target as CreatorBase).Create();
+                (target as CreatorBase)?.Create();
             AssetDatabase.SaveAssets();
             serializedObject.ApplyModifiedProperties();
         }

@@ -228,34 +228,32 @@ namespace Rosetta.Runtime
         /// <summary>
         ///     The I18N String cache.Storage by space.
         /// </summary>
-        public static Dictionary<string, Dictionary<string, string>> I18NTextCache =
-            new Dictionary<string, Dictionary<string, string>>();
+        public static Dictionary<string, Dictionary<string, string>> I18NTextCache = new();
 
         /// <summary>
         ///     The I18N Sprite cache.Storage by space.
         /// </summary>
-        public static Dictionary<string, Dictionary<string, Sprite>> I18NSpriteCache =
-            new Dictionary<string, Dictionary<string, Sprite>>();
+        public static Dictionary<string, Dictionary<string, Sprite>> I18NSpriteCache = new();
 
         /// <summary>
         ///     The I18N AudioClip cache.Storage by space.
         /// </summary>
-        public static Dictionary<string, Dictionary<string, AudioClip>> I18NAudioCache = new Dictionary<string, Dictionary<string, AudioClip>>();
+        public static Dictionary<string, Dictionary<string, AudioClip>> I18NAudioCache = new();
 
         /// <summary>
         ///     The I18N Font cache.
         /// </summary>
-        public static Dictionary<string, Font> I18NFontCache = new Dictionary<string, Font>();
+        public static Dictionary<string, Font> I18NFontCache = new();
 
         /// <summary>
         ///     The I18N TMP_FontAsset cache.
         /// </summary>
-        public static Dictionary<string, TMP_FontAsset> I18NTMPFontCache = new Dictionary<string, TMP_FontAsset>();
+        public static Dictionary<string, TMP_FontAsset> I18NTMPFontCache = new();
 
         /// <summary>
         ///     All I18N File Loader.
         /// </summary>
-        public static Dictionary<I18NFileType, LoaderBase> Loaders = new Dictionary<I18NFileType, LoaderBase>
+        public static Dictionary<I18NFileType, LoaderBase> Loaders = new()
         {
             {I18NFileType.Po, new PoLoader()},
             {I18NFileType.Png, new PngLoader()},
@@ -263,13 +261,13 @@ namespace Rosetta.Runtime
             {I18NFileType.Font, new FontLoader()}
         };
         
-        public static MultiMediaLoader MultiMediaLoader = new MultiMediaLoader();
+        public static MultiMediaLoader MultiMediaLoader = new();
 
         /// <summary>
         ///     ToDo: error
         ///     I18N files load path.
         /// </summary>
-        public static readonly List<string> LoadPath = new List<string>
+        public static readonly List<string> LoadPath = new()
         {
             $"{new Regex("/[^/]*$").Replace(Application.dataPath, "")}/I18N/"
         };

@@ -43,11 +43,10 @@ namespace Rosetta.Runtime.Loader
         /// <returns></returns>
         public T LoadFile<T>()
         {
-            foreach (var path in Rosetta.LoadPath)
-                if (File.Exists(GetFilePath(path)))
-                    if (typeof(T) == typeof(string))
-                        return (T)(object)File.ReadAllText(GetFilePath(path), Encoding.UTF8);
-                    else if (typeof(T) == typeof(byte[])) return (T)(object)File.ReadAllBytes(GetFilePath(path));
+            foreach (var path in Rosetta.LoadPath.Where(path => File.Exists(GetFilePath(path))))
+                if (typeof(T) == typeof(string))
+                    return (T)(object)File.ReadAllText(GetFilePath(path), Encoding.UTF8);
+                else if (typeof(T) == typeof(byte[])) return (T)(object)File.ReadAllBytes(GetFilePath(path));
             throw new Exception(
                 $"File Load fail:\n{Rosetta.LoadPath.Select(GetFilePath).Aggregate((a, b)=> $"{a}\n{b}")}");
         }

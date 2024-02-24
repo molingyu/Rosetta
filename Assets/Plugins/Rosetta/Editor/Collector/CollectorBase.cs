@@ -24,19 +24,12 @@ namespace Rosetta.Editor.Collector
         [HideInInspector]
         public Dictionary<string, I18NMedia<string>> I18NStrings;
 
-        public static List<Type> I18NClass => _i18NClass ?? (_i18NClass = GetI18NClass());
+        public static List<Type> I18NClass => _i18NClass ??= GetI18NClass();
 
         public abstract void Collect(string space);
 
         private static List<Type> GetI18NClass()
         {
-            // var subclasses =
-            //     from assembly in AppDomain.CurrentDomain.GetAssemblies()
-            //     from type in assembly.GetTypes()
-            //     from attr in type.Attributes
-            //     where attr.GetType() == typeof(I18NClassAttribute)
-            //     select type;
-            // return subclasses.ToList();
             return AppDomain.CurrentDomain.GetAssemblies().SelectMany(assem =>
                 assem.GetTypes().Where(type =>
                     type.CustomAttributes.Any(attr =>

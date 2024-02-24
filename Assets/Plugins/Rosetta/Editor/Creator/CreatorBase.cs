@@ -25,7 +25,7 @@ namespace Rosetta.Editor.Creator
     public abstract class CreatorBase : ScriptableObject
     {
         [HideInInspector]
-        public List<CollectorBase> Collectors = new List<CollectorBase>();
+        public List<CollectorBase> Collectors = new();
         public string Name;
         [FolderPath] public string OutputPath;
 

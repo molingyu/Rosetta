@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Rosetta.Runtime;
 using UnityEngine;
 
@@ -76,8 +77,7 @@ msgstr """"
         {
             var value = "";
             if (comment != "") value += $"#. {comment}";
-            foreach (var path in paths) value += $"#: {path}\n";
-            return value;
+            return paths.Aggregate(value, (current, path) => current + $"#: {path}\n");
         }
 
         private string GetBody(string value)

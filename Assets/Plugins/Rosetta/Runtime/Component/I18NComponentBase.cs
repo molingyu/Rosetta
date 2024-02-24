@@ -1,4 +1,3 @@
-// using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Rosetta.Runtime.Component

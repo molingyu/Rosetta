@@ -1,16 +1,13 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using UnityEngine;
-
 
 namespace Rosetta.Editor.Collector
 {
     public class SceneCollector : PrefabCollectorBase
     {
-        public List<SceneAsset> SceneList = new List<SceneAsset>();
+        public List<SceneAsset> SceneList = new();
 
         public override void Collect(string space)
         {

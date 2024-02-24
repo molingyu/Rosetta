@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Rosetta.Runtime
 {
     /// <summary>
-    /// The substitude to Odin's [FolderPath] Attribute.
+    /// The substitute to Odin's [FolderPath] Attribute.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class FolderPathAttribute : PropertyAttribute

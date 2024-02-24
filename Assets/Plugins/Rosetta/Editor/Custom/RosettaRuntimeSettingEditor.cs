@@ -1,16 +1,14 @@
 using System.Linq;
 using UnityEditor;
 using static UnityEditor.EditorGUILayout;
-using Rosetta.Runtime;
 using System.Collections.Generic;
-
 
 namespace Rosetta.Runtime.Custom
 {
     [CustomEditor(typeof(RosettaRuntimeSetting))]
     public class RosettaRuntimeSettingEditor : UnityEditor.Editor
     {
-        private static Dictionary<string, I18NFileType> textFileType = new Dictionary<string, I18NFileType>()
+        private static Dictionary<string, I18NFileType> _textFileType = new Dictionary<string, I18NFileType>()
         {
             {"Po", I18NFileType.Po}
             //{"Mo", I18NFileType.Mo},
@@ -36,8 +34,8 @@ namespace Rosetta.Runtime.Custom
                 serDevLocale.enumValueIndex = (int)langValues[newVal];
 
             // TextFileType
-            displays = textFileType.Select(i => i.Key).ToArray();
-            var fileValues = textFileType.Select(i => i.Value).ToArray();
+            displays = _textFileType.Select(i => i.Key).ToArray();
+            var fileValues = _textFileType.Select(i => i.Value).ToArray();
             var serTextFileType = serializedObject.FindProperty("TextFileType");
             serTextFileType.enumValueIndex = (int)fileValues[Popup("TextFileType", serTextFileType.enumValueIndex, displays)];
             serializedObject.ApplyModifiedProperties();
